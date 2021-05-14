@@ -1,14 +1,10 @@
-import {FormControl, Grid, Input, InputLabel, MenuItem, Select, withStyles} from "@material-ui/core";
+import {Button, Grid, MenuItem, TextField, withStyles} from "@material-ui/core";
 import {Component} from "react";
 
 const styles = theme => ({
     formControl: {
         margin: theme.spacing(1),
         width: '100%',
-    },
-    item: {
-        padding: theme.spacing(2),
-        textAlign: 'center'
     }
 })
 
@@ -38,31 +34,41 @@ class FormComponent extends Component {
         const {classes} = this.props;
 
         return (
-            <Grid container spacing={3}>
-                <Grid item className={classes.item} xs>
-                    <FormControl variant="outlined" className={classes.formControl}>
-                        <InputLabel>Приоритет</InputLabel>
-                        <Select label="Приоритет">
+            <form>
+                <Grid container spacing={3}>
+                    <Grid item xs={3}>
+                        <TextField
+                            select
+                            className={classes.formControl}
+                            label="Приоритет"
+                            variant="outlined"
+                        >
                             {
-                                this.state.priorityLevel.map(el => <MenuItem value={el.id}>{el.name}</MenuItem>)
+                                this.state.priorityLevel.map(el => <MenuItem key={el.id} value={el.id}>{el.name}</MenuItem>)
                             }
-                        </Select>
-                    </FormControl>
-                </Grid>
+                        </TextField>
+                    </Grid>
 
-                <Grid item className={classes.item} xs={6}>
-                    <FormControl variant="outlined" className={classes.formControl}>
-                        <InputLabel>Приоритет</InputLabel>
-                        <Input label="Приоритет">
+                    <Grid item xs={6}>
+                        <TextField
+                            className={classes.formControl}
+                            label="Текст задачи"
+                            variant="outlined"
+                        >
+                        </TextField>
+                    </Grid>
 
-                        </Input>
-                    </FormControl>
+                    <Grid item xs={3}>
+                        <Button
+                            className={classes.formControl}
+                            variant="outlined"
+                            color="primary"
+                        >
+                            Добавить задачу
+                        </Button>
+                    </Grid>
                 </Grid>
-
-                <Grid item className={classes.item} xs>
-                    hello
-                </Grid>
-            </Grid>
+            </form>
         )
     }
 }

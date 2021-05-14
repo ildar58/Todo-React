@@ -1,18 +1,29 @@
 import './App.css';
-import {Card, Container, CssBaseline, Grid} from "@material-ui/core";
+import {Card, Container, CssBaseline, Grid, withStyles} from "@material-ui/core";
 import Form from "./components/form/Form";
+import {Component} from "react";
 
-function App() {
+const styles = theme => ({
+    root: {
+        width: '100%'
+    }
+})
 
-  return (
-      <CssBaseline>
-          <Container>
-              <Card variant="outlined">
-                    <Form></Form>
-              </Card>
-          </Container>
-      </CssBaseline>
-  );
+class App extends Component {
+
+    render() {
+        const {classes} = this.props;
+
+        return (
+            <CssBaseline>
+                <Container>
+                    <Card className={classes.root} variant="outlined">
+                        <Form></Form>
+                    </Card>
+                </Container>
+            </CssBaseline>
+        );
+    }
 }
 
-export default App;
+export default withStyles(styles)(App);
