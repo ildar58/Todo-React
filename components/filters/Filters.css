@@ -1,0 +1,25 @@
+.filter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.filter-label {
+    flex: 1;
+}
+
+.filter-control {
+    flex: 2;
+}
+
+.filter-checkboxes {
+    flex: 3;
+}
+
+.sort-card {
+    color: grey !important;
+}
+
+.search {
+    flex: 4
+}

@@ -1,29 +1,34 @@
 import './App.css';
-import {Card, Container, CssBaseline, Grid, withStyles} from "@material-ui/core";
+import {Container, CssBaseline, Paper} from "@material-ui/core";
 import Form from "./components/form/Form";
 import {Component} from "react";
-
-const styles = theme => ({
-    root: {
-        width: '100%'
-    }
-})
+import Filters from "./components/filters/Filters";
+import TodoList from "./components/list/TodoList";
+import ScrollBox from "./common/scroll-box/ScrollBox";
 
 class App extends Component {
 
     render() {
-        const {classes} = this.props;
-
         return (
             <CssBaseline>
-                <Container>
-                    <Card className={classes.root} variant="outlined">
+                <Container maxWidth="lg">
+                    <Paper variant="outlined" className="form">
                         <Form></Form>
-                    </Card>
+                    </Paper>
+
+                    <Paper variant="outlined" className="container">
+                        <Filters></Filters>
+                    </Paper>
+
+                    <Paper variant="outlined" className="container todolist">
+                        <ScrollBox>
+                            <TodoList></TodoList>
+                        </ScrollBox>
+                    </Paper>
                 </Container>
             </CssBaseline>
         );
     }
 }
 
-export default withStyles(styles)(App);
+export default App;

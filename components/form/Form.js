@@ -1,57 +1,49 @@
-import {Button, Grid, MenuItem, TextField, withStyles} from "@material-ui/core";
+import {Button, Grid, MenuItem, TextField} from "@material-ui/core";
+import './Form.css'
 import {Component} from "react";
-
-const styles = theme => ({
-    formControl: {
-        margin: theme.spacing(1),
-        width: '100%',
-    }
-})
 
 class FormComponent extends Component {
     state = {
         priorityLevel: [
             {
-                id: '',
+                alias: '',
                 name: 'Не выбрано'
             },
             {
-                id: 'low',
+                alias: 'low',
                 name: 'Низкий'
             },
             {
-                id: 'medium',
+                alias: 'medium',
                 name: 'Средний'
             },
             {
-                id: 'high',
+                alias: 'high',
                 name: 'Высокий'
             }
         ]
     }
 
     render() {
-        const {classes} = this.props;
-
         return (
             <form>
                 <Grid container spacing={3}>
                     <Grid item xs={3}>
                         <TextField
                             select
-                            className={classes.formControl}
+                            className="control"
                             label="Приоритет"
                             variant="outlined"
                         >
                             {
-                                this.state.priorityLevel.map(el => <MenuItem key={el.id} value={el.id}>{el.name}</MenuItem>)
+                                this.state.priorityLevel.map(el => <MenuItem key={el.alias} value={el.alias}>{el.name}</MenuItem>)
                             }
                         </TextField>
                     </Grid>
 
                     <Grid item xs={6}>
                         <TextField
-                            className={classes.formControl}
+                            className="control"
                             label="Текст задачи"
                             variant="outlined"
                         >
@@ -60,7 +52,7 @@ class FormComponent extends Component {
 
                     <Grid item xs={3}>
                         <Button
-                            className={classes.formControl}
+                            className="control btn"
                             variant="outlined"
                             color="primary"
                         >
@@ -73,4 +65,4 @@ class FormComponent extends Component {
     }
 }
 
-export default withStyles(styles)(FormComponent);
+export default FormComponent;
