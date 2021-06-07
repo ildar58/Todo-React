@@ -23,3 +23,7 @@
 .search {
     flex: 4
 }
+
+.sort-card__active {
+    text-decoration: underline !important;
+}

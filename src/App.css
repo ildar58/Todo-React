@@ -9,7 +9,7 @@
 }
 
 .todolist {
-    height: 800px;
+    height: 600px;
     overflow-y: auto;
     overflow-x: hidden;
 }
